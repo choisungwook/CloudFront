@@ -6,8 +6,8 @@ resource "aws_cloudfront_distribution" "this" {
   default_root_object = var.index_document
 
   origin {
-    origin_id                = aws_s3_bucket.this.id
-    domain_name              = aws_s3_bucket.this.bucket_domain_name
+    origin_id   = aws_s3_bucket.this.id
+    domain_name = aws_s3_bucket.this.bucket_domain_name
 
     custom_origin_config {
       origin_protocol_policy = "http-only"

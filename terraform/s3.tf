@@ -25,16 +25,16 @@ resource "aws_s3_bucket_website_configuration" "this" {
 
 data "aws_iam_policy_document" "cloudfront" {
   statement {
-    actions = [ "s3:GetObject" ]
-    resources = [ "${aws_s3_bucket.this.arn}/*" ]
+    actions   = ["s3:GetObject"]
+    resources = ["${aws_s3_bucket.this.arn}/*"]
     principals {
-      type = "Service"
+      type        = "Service"
       identifiers = ["cloudfront.amazonaws.com"]
     }
     condition {
-      test = "StringEquals"
+      test     = "StringEquals"
       variable = "AWS:SourceArn"
-      values = [aws_cloudfront_distribution.this.arn]
+      values   = [aws_cloudfront_distribution.this.arn]
     }
   }
 }
