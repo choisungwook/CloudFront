@@ -49,9 +49,10 @@ resource "aws_s3_object" "index" {
   key          = "index.html"
   source       = "index.html"
   content_type = "text/html"
+  # no-store은 client에서 메모리로 캐싱
+  cache_control = "max-age=0, no-cache, no-store, must-revalidate"
 
   etag = filemd5("index.html")
-  #acl  = "public-read"
   depends_on = [
     aws_s3_bucket.this
   ]
@@ -62,6 +63,8 @@ resource "aws_s3_object" "error" {
   key          = "error.html"
   source       = "error.html"
   content_type = "text/html"
+  # no-store은 client에서 메모리로 캐싱
+  cache_control = "max-age=0, no-cache, no-store, must-revalidate"
 
   etag = filemd5("error.html")
   #acl  = "public-read"
