@@ -38,8 +38,8 @@ resource "aws_cloudfront_distribution" "this" {
 
     # only use test
     min_ttl                = 0
-    default_ttl            = 15 # 15 seconds
-    max_ttl                = 15 # 15 seconds
+    default_ttl            = 300 # 303 seconds
+    max_ttl                = 300 # 303 seconds
   }
 
   # 지리적 제한: 특정 국가에서만 접근하도록 화이트리스트 작성
