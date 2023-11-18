@@ -43,3 +43,29 @@ resource "aws_s3_bucket_policy" "this" {
   bucket = aws_s3_bucket.this.id
   policy = data.aws_iam_policy_document.cloudfront.json
 }
+
+resource "aws_s3_object" "index" {
+  bucket       = var.bucket_name
+  key          = "index.html"
+  source       = "index.html"
+  content_type = "text/html"
+
+  etag = filemd5("index.html")
+  #acl  = "public-read"
+  depends_on = [
+    aws_s3_bucket.this
+  ]
+}
+
+resource "aws_s3_object" "error" {
+  bucket       = var.bucket_name
+  key          = "error.html"
+  source       = "error.html"
+  content_type = "text/html"
+
+  etag = filemd5("error.html")
+  #acl  = "public-read"
+  depends_on = [
+    aws_s3_bucket.this
+  ]
+}
