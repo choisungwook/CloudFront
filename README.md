@@ -78,7 +78,7 @@ terraform destroy
 <br>
 
 # 참고자료
-1. cache 설정: https://toss.tech/article/smart-web-service-cach
+1. cache 설정: https://toss.tech/article/smart-web-service-cache
 2. cache-control 설정방법: https://medium.com/@xpiotrkleban/cloudfront-and-terraform-essentials-how-to-optimize-content-delivery-27c84e8aef04
 3. terrafom code: https://github.com/riboseinc/terraform-aws-s3-cloudfront-website/blob/master/
 4. terrafom code: https://awstip.com/aws-cloudfront-with-s3-as-origin-using-terraform-a369cdadc541
